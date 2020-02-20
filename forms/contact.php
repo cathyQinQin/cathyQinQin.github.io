@@ -2,7 +2,7 @@
 if(isset($_POST['email'])) {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "qin7@ualberta.ca";
+    $email_to = "zqqldd@gmail.com";
  
     function died($error) {
         // your error code can go here
