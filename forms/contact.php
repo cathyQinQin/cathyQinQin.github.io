@@ -68,17 +68,13 @@ if(isset($_POST['email'])) {
     $email_message .= "Message: ".clean_string($message)."\n";
  
 // create email headers
-$headers = 'From: '.$email_from."\r\n".
-'Reply-To: '.$email_from."\r\n" .
-'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $subject, $email_message, $headers);  
-?>
- 
-<!-- include your own success html here -->
- 
-Thank you for contacting us. We will be in touch with you very soon.
- 
-<?php
- 
+$headers .= 'From: '.$email_from."\r\n".
+    'Reply-To: '.$email_from."\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+if(mail($email_to, $subject, $email_message, $headers)){
+    echo 'Your mail has been sent successfully.';
+} else{
+    echo 'Unable to send email. Please try again.';
+}
 }
 ?>
